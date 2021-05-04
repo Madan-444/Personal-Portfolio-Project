@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-primary: #ffffff;
+  --color-primary-m-light: hsla(327, 15%, 12%, 0.55);
+  --color-primary-m-dark: hsla(330, 92%, 33%, 0.85);
+}
+#canvas1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#c9adad,#fffbfb7a);
+}
+.quote-section {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* background-color: blueviolet; */
+  align-items: center;
+}
+.quote-container {
+  position: absolute;
+
+  /* background-color: rgb(40, 226, 226); */
+  /* margin: auto; */
+  height: 50vh;
+  width: 80vw;
+  margin-top: 5rem;
+  margin-left: 4rem;
+  /* background-color: aquamarine; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+.quote-container p {
+  font-size: 1.5rem;
+  font-family: 'Signika', sans-serif;
+  letter-spacing: 2px;
+  line-height: 45px;
+  text-align: center;
+  
+}
+.quote-container p:last-of-type {
+  color: var(--color-primary);
+  font-size: 2rem;
+  padding-top: 2rem;
+  margin-left: calc(5rem + 20vw);
+}
+.quote-container img {
+  padding: 20px;
+  height: 400px;
+  object-fit: cover;
+  width: 350px;
+  /* margin-top: 2rem; */
+}
+.quote-container button {
+  position: absolute;
+  padding: 0.4rem;
+  font-size: 1.3rem;
+  background: none;
+  border: 2px solid red;
+  margin-left: 60%;
+  /* margin-bottom: -60%; */
+  margin-top: 35px;
+  transition: all 0.3s ease-in-out;
+
+}
+.quote-container button span {
+  color: black;
+
+}
+.quote-container button:hover {
+  border: 2px solid black;
+  color: red;
+}
