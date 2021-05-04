@@ -160,11 +160,16 @@ function Home() {
         <div className="quote-container">
           <div>
             <p>
-              "I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited.Imagination encircles the world."
+              "I am enough of an artist to draw freely upon my imagination.
+              Imagination is more important than knowledge. Knowledge is
+              limited.Imagination encircles the world."
             </p>
-            <p>---Albert Einstein
-            </p>
-            <button><Link to="/input-name"  style={{ textDecoration: 'none' }}><span>Go To Home</span></Link></button>
+            <p>---Albert Einstein</p>
+            <div className="button-container">
+              <Link to="/input-name" style={{ textDecoration: "none" }}>
+                <span>Go To Home</span>
+              </Link>
+            </div>
           </div>
           <img src={image} alt="image" />
         </div>
