@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import { BrowserRouter, Route,Switch} from "react-router-dom";
 import AreYouRobot from './components/AreYouRobot';
-import InputName from './components/InputName';
+import HomePage from './components/HomePage';
 import MyIntro from './components/MyIntro';
 import MySkills from './components/MySkills';
 import MyWorks from './components/MyWorks';
@@ -15,7 +15,7 @@ function Routes() {
     <BrowserRouter>
     <Switch>
         <Route path = '/' exact component = {Home} />
-        <Route path = '/input-name' exact component = {InputName} />
+        <Route path = '/home-page' exact component = {HomePage} />
         <Route path = '/are-u-robot' exact component = {AreYouRobot} />
 
         <Route path = '/my-intro' exact component={MyIntro} />

@@ -1,8 +1,20 @@
-import React, { useRef } from "react";
+import React, { useState,useRef } from "react";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
 import image from "./images/einstein.png";
+import robotImg from './images/robot.png'
+import { inputName } from "../redux/action";
 
-function Home() {
+const mapStateToProps = (state)=> {
+  return {
+    name: state.myName
+  }
+
+}
+
+function Home({name,inputName}) {
+  console.log('my name from home',name.length)
+  const [homePage,setHomePage] = useState(true)
   const my_canvasRef = useRef(null);
   React.useEffect(() => {
     // console.log(my_canvasRef.current)
@@ -156,26 +168,48 @@ function Home() {
       <div>
         <canvas id="canvas1" ref={my_canvasRef}></canvas>
       </div>
-      <section className="quote-section">
+     {homePage?  <section className="quote-section">
         <div className="quote-container">
-          <div>
-            <p>
-              "I am enough of an artist to draw freely upon my imagination.
-              Imagination is more important than knowledge. Knowledge is
-              limited.Imagination encircles the world."
-            </p>
-            <p>---Albert Einstein</p>
+          <img src={image} alt="image" />
+          <div className="button-paragraph_container">
+            <div className="p-container--item">
+              <p>
+                "I am enough of an artist to draw freely upon my imagination.
+                Imagination is more important than knowledge. Knowledge is
+                limited.Imagination encircles the world."
+              </p>
+              <p>---Albert Einstein</p>
+            </div>
             <div className="button-container">
-              <Link to="/input-name" style={{ textDecoration: "none" }}>
-                <span>Go To Home</span>
-              </Link>
+              <button onClick={()=> setHomePage(false)}>
+                <span>Next>></span>
+              </button>
             </div>
           </div>
-          <img src={image} alt="image" />
         </div>
-      </section>
+      </section>: <div className='input-name'>
+        <div className="input-name-container">
+        <img src={robotImg} alt=""/>
+        <div className="input-name-get-input">
+          <p>Hi!</p>
+          <p>I am P.A(Personal Asistance) of this owoner. I will be honour if i get your name. Thank You.</p>
+          <div className="inpu-nextbutton">
+          <input type='text' value={name} onChange={(e)=> inputName(e.target.value)} placeholder='Name Here'/>
+          <Link to="/home-page" style={{ textDecoration: "none" }}>
+                <span>Next>></span>
+              </Link>
+          </div>
+        </div>
+        </div>
+        </div>}
     </div>
   );
 }
 
-export default Home;
+const mapDispatchToProps=(dispatch)=> {
+  return {
+    inputName: (inputname)=> dispatch(inputName(inputname))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
