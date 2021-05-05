@@ -1,15 +1,19 @@
 import React from 'react'
+import './homepage.css'
 import {Link} from 'react-router-dom'
 
 function HomePage() {
     return (
         <div>
-            <div>
-            <h2>What is your Name?</h2>
-            <input type='text' />
-            </div>
-            <button><Link to='/' >Previous</Link></button>
-            <button><Link to='/are-u-robot' >Next</Link></button>
+            {/* <cavas id="canvas2"></cavas> */}
+           <div className="homepage-container">
+               <section className="homepage-intro"></section>
+               <section className="homepage-project"></section>
+               <section className="homepage-skills"></section>
+               <section className="homepage-about"></section>
+
+           
+           </div>
         </div>
     )
 }

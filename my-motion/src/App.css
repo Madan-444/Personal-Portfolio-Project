@@ -16,6 +16,14 @@
   height: 100%;
   background: radial-gradient(#c9adad,#fffbfb7a);
 }
+/* #canvas2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#000000,#0000007a);
+} */
 .quote-section {
   position: absolute;
   height: 100%;
@@ -161,8 +169,6 @@
   .quote-container p {
     text-align: start;
   }
-
-
 }
 
 /* Input name styling starts from here */
@@ -178,7 +184,7 @@
 .input-name-container {
   min-height: 40vh;
   width: 40vw;
-  background-color: blueviolet;
+  background-color: hsla(271, 76%, 53%, 0.39);
   padding: 1rem;
   display: flex;
 }
