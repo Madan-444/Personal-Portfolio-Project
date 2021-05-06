@@ -9,11 +9,215 @@
     font-size: 62.5%;
     
 } */
+p {
+    color: white;
+    font-size: calc(10px + 1vw);
+    font-weight: 300;
+}
+li {
+    list-style: none;
+    margin-bottom: 40px;
+}
+a:link,
+a:visited {
+    color: aquamarine;
+    text-decoration: none;
+    font-size: calc(0.3rem + 1vw);
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    position: relative;
+    transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+    z-index: 1;
+
+}
 .homepage-container {
     background: linear-gradient(rgba(0, 0, 0, 0.479),hsla(0, 0%, 0%, 0.733));
     height: 100vh;
-    width: 100vw;
+    /* width: 100vw; */
     display: grid;
-    grid-template-columns: 1fr repeat(10,1fr) 1fr;
-    /* grid-template-rows:  ; */
+    grid-template-columns: 1fr repeat(10,minmax(min-content,110px)) 1fr;
+    grid-template-rows:  100vh repeat(4,min-content);
+}
+  /* ********************** My intro Section Styling ********************************************8 */
+section#homepage-intro {
+    height: 100vh;
+    grid-column: 1 / 13;
+    /* background: hsla(357, 47%, 51%, 0.329); */
+    background: linear-gradient(hsla(219, 92%, 20%, 0.493),hsla(348, 45%, 2%, 0.589)), url('./images//background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+.header__main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.header__main-nav input[type='checkbox'] {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    height: 50px;
+    width: 50px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+.header__main-nav--hamburger {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    z-index: 2;
+    background-color: hsla(64, 100%, 49%, 0.856);
+    display: grid;
+    place-items: center;
+}
+/* three lines */
+.header__main-nav--hamburger > div {
+    position: relative;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s ease-in;
+}
+.header__main-nav--hamburger > div::before,
+.header__main-nav--hamburger > div::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 60%;
+    height: inherit;
+    background-color: inherit;
+    z-index: 2;
+}
+.header__main-nav--hamburger > div::before {
+    left: 0;
+}
+.header__main-nav--hamburger > div::after {
+    top: 10px;
+    right: 0;
+}
+
+.header__main-nav input[type='checkbox']:checked + .header__main-nav--hamburger > div {
+    transform: rotate(135deg);
+}
+.header__main-nav input[type='checkbox']:checked + .header__main-nav--hamburger > div::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: rotate(270deg);
+}
+.header__main-nav input[type='checkbox']:checked + .header__main-nav--hamburger > div::after {
+    opacity: 0;
+}
+.header__main-nav input[type='checkbox']:checked:hover + .header__main-nav--hamburger > div {
+    transform: rotate(405deg);
+}
+
+/* links menu */
+.header__main-nav--menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    overflow: hidden;
+
+    display: grid;
+    place-items: center;
+
+}
+.header__main-nav--menu > div {
+    background-color: hsla(90, 100%, 49%, 0.5);
+    height: 200%;
+    width: 200%;
+
+    display: grid;
+    place-items: center;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in-out;
+}
+.header__main-nav--menu > div > div {
+    text-align: center;
+    max-width: 90vh;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+}
+.header__main-nav--menu ul li a:link,
+.header__main-nav--menu ul li a:visited {
+    z-index: 5;
+    font-size: calc(1rem + 1vw);
+
+    /* background-color: pink; */
+}
+.header__main-nav--menu ul li a:link::before,
+.header__main-nav--menu ul li a:visited::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform: scale(0);
+    background-color: hsla(252, 46%, 11%, 0.664);
+    border-radius: 5px;
+    transform-origin: bottom;
+    transition: transform 0.5s ease-in-out;
+    
+}
+.header__main-nav--menu ul li a:hover::before,
+.header__main-nav--menu ul li a:active::before {
+    transform: scale(1);
+}
+
+/* displaying the menu when check box is checked */
+.header__main-nav input[type='checkbox']:checked ~ .header__main-nav--menu {
+    visibility: visible;
+}
+.header__main-nav input[type='checkbox']:checked ~ .header__main-nav--menu > div {
+    transform: scale(1);
+    /* transition: 3s ease-in-out; */
+}
+.header__main-nav input[type='checkbox']:checked ~ .header__main-nav--menu > div > div {
+    opacity: 1;
+}
+
+  /* ********************** My project showcase Section styling ********************************************8 */
+section#homepage-projects {
+    height: 100vh;
+    grid-column: 2 / 12;
+    background: hsla(125, 54%, 48%, 0.329);
+
+}
+  /* ********************** My skills Section styling ********************************************8 */
+section#homepage-skills {
+    height: 100vh;
+    grid-column: 2 / 12;
+    background: hsla(240, 63%, 43%, 0.329);
+
+}
+
+  /* ********************** My resume Section styling ********************************************8 */
+section#homepage-resume {
+    height: 100vh;
+    grid-column: 2 / 12;
+    background: hsla(194, 90%, 70%, 0.329);
+
+}
+/* ********************** My personal notes Section ********************************************8 */
+section#homepage-notes {
+    height: 100vh;
+    grid-column: 2 / 12;
+    background: hsla(194, 98%, 51%, 0.329);
+
 }
